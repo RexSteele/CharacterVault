@@ -3,7 +3,7 @@ pragma solidity >=0.5.0 <0.6.0;
 import "./erc721.sol";
 import "./safemath.sol";
 
-contract CharacterOwnership is SheetGenerator, ERC721 {
+contract SheetOwnership is SheetGenerator, ERC721 {
 
     using SafeMath for uint256;
 
