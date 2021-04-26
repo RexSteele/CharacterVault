@@ -2,12 +2,18 @@ pragma solidity >=0.5.0 <0.6.0;
 
 import "./erc721.sol";
 import "./safemath.sol";
+import "./SheetGenerator.sol";
 
 contract SheetOwnership is SheetGenerator, ERC721 {
 
     using SafeMath for uint256;
 
-    mapping (uint => address) sheet Approvals;
+    mapping (uint => address) Approvals;
+
+    modifier onlyOwnerOf(uint _sheetId) {
+      require(msg.sender == sheetToOwner[_sheetId]);
+      _;
+    }
 
     function balanceOf(address _owner) external view returns (uint256) {
         return ownerSheetCount[_owner];
@@ -25,12 +31,12 @@ contract SheetOwnership is SheetGenerator, ERC721 {
     }
 
     function transferFrom(address _from, address _to, uint256 _tokenId) external payable {
-        require (sheetToOwner[_tokenId] == msg.sender || sheetApprovals[_tokenId] == msg.sender);
+        require (sheetToOwner[_tokenId] == msg.sender || Approvals[_tokenId] == msg.sender);
         _transfer(_from, _to, _tokenId);
     }
 
     function approve(address _approved, uint256 _tokenId) external payable onlyOwnerOf(_tokenId) {
-        sheetApprovals[_tokenId] = _approved;
+        Approvals[_tokenId] = _approved;
         emit Approval(msg.sender, _approved, _tokenId);
     }
 
