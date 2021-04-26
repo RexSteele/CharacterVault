@@ -45,7 +45,7 @@ contract SheetGenerator is Ownable {
     mapping (uint => address) public sheetToOwner;
     mapping (address => uint) ownerSheetCount;
 
-    function _createSheet(string memory _charName, string memory _race, string memory _class, uint16[] memory _attributes) internal {
+    function createSheet(string memory _charName, string memory _race, string memory _class, uint16[] memory _attributes) public {
         uint id = sheets.push(Sheet(_charName, _race, _class, _attributes)) - 1;
         sheetToOwner[id] = msg.sender;
         ownerSheetCount[msg.sender] = ownerSheetCount[msg.sender].add(1);
