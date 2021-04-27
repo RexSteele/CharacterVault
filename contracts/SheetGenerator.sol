@@ -9,18 +9,19 @@ contract SheetGenerator is Ownable {
     using SafeMath32 for uint32;
     using SafeMath16 for uint16;
 
-    event NewSheet(uint sheetId, string charName, string race, string class, uint16[] attributes);
+    uint randNonce = 0;
+
+    event NewSheet(uint sheetId, string charName, string race, string class, uint[] attributes);
 
     struct Sheet {
         string charName;
         string race;
         string class;
-
+        uint[] attributes;
         // uint16 level;
         // uint32 currentExp;
         // uint32 neededExp;
         //
-        uint16[] attributes;
         //
         // uint16 bonusStr;
         // uint16 bonusDex;
@@ -45,11 +46,30 @@ contract SheetGenerator is Ownable {
     mapping (uint => address) public sheetToOwner;
     mapping (address => uint) ownerSheetCount;
 
-    function createSheet(string memory _charName, string memory _race, string memory _class, uint16[] memory _attributes) public {
-        uint id = sheets.push(Sheet(_charName, _race, _class, _attributes)) - 1;
+    function createSheet(string memory _charName, string memory _race, string memory _class, uint[] memory _attributes) public {
+        uint id = sheets.push(Sheet(_charName, _race, _class, new uint[](6))) - 1;
+        sheets[sheets.length-1].attributes[0] = 5;
         sheetToOwner[id] = msg.sender;
         ownerSheetCount[msg.sender] = ownerSheetCount[msg.sender].add(1);
         emit NewSheet(id, _charName, _race, _class, _attributes);
+    }
+
+    function createRandomSheet(string memory _charName, string memory _race, string memory _class) public {
+        uint[] memory _attributes = new uint[](6);
+        uint i;
+        for(i = 0; i < 6; i++) {
+          _attributes[i] = (randMod(18));
+        }
+        createSheet(_charName, _race, _class, _attributes);
+        // uint id = sheets.push(Sheet(_charName, _race, _class, _attributes)) - 1;
+        // sheetToOwner[id] = msg.sender;
+        // ownerSheetCount[msg.sender] = ownerSheetCount[msg.sender].add(1);
+        // emit NewSheet(id, _charName, _race, _class, _attributes);
+    }
+
+    function randMod(uint _modulus) internal returns(uint) {
+        randNonce = randNonce.add(1);
+        return uint(keccak256(abi.encodePacked(now, msg.sender, randNonce))) % _modulus;
     }
 
 }

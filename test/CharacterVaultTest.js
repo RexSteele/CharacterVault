@@ -26,7 +26,17 @@ describe("CharacterVault", function() {
         .to.emit(CVinstance, "NewSheet")
 
       const x = await CVinstance.sheets(0);
+      console.log(x);
+      console.log(x.attributes);
       expect(x.charName).to.equal(characterNames[0]);
+    });
+    it("Should create a new random sheet", async () => {
+      await expect(CVinstance.createRandomSheet(characterNames[1], classes[1], races[1]))
+        .to.emit(CVinstance, "NewSheet")
+
+      const x = await CVinstance.sheets(0);
+      console.log(x.attributes);
+      expect(x.charName[0]).to.not.equal(attributes[0]);
     });
   });
 })
