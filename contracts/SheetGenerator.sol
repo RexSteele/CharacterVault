@@ -48,8 +48,59 @@ contract SheetGenerator is Ownable {
         // bool[] savingThrows; //True if saving throw is applicable, False if not, in order of abilities on sheet
     }
 
-    Sheet[] public sheets;
+    function attributeBonuses(uint16  attribute_score) public view returns(int) {
+     if(attribute_score >= 24)
+     {
+       return 7;
+     }
+     if(attribute_score >= 22)
+     {
+       return 6;
+     }
+     if(attribute_score >= 20)
+     {
+       return 5;
+     }
+     if(attribute_score >= 18)
+     {
+       return 4;
+     }
+     if(attribute_score >= 16)
+     {
+       return 3;
+     }
+     if(attribute_score >= 14)
+     {
+       return 2;
+     }
+     if(attribute_score >= 12)
+     {
+       return 1;
+     }
+     if(attribute_score >= 10)
+     {
+       return 0;
+     }
+     if(attribute_score >= 8)
+     {
+       return -1;
+     }
+     if(attribute_score >= 6)
+     {
+       return -2;
+     }
+     if(attribute_score >= 4)
+     {
+       return -3;
+     }
+     if(attribute_score >= 2)
+     {
+       return -4;
+     }
+     return -5;
+    }
 
+    Sheet[] public sheets;
     mapping (uint => address) public sheetToOwner;
     mapping (address => uint) ownerSheetCount;
 
