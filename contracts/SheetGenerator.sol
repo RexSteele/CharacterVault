@@ -1,5 +1,4 @@
 pragma solidity >=0.5.0 <0.6.0;
-
 import "./ownable.sol";
 import "./safemath.sol";
 
@@ -13,6 +12,21 @@ contract SheetGenerator is Ownable {
 
     event NewSheet(uint sheetId, string charName, string race, string class);
 
+    struct calculated_attributes {
+      string gender;
+      uint16 age;
+      string height;
+      uint16 weight;
+      string hair;
+      string eyes;
+      string homeland;
+      string deity;
+      string alignment;
+      uint16 Armorclass;
+      int savingthrows;
+      uint16 level;
+    }
+
     struct Sheet {
         string charName;
         string race;
@@ -24,18 +38,11 @@ contract SheetGenerator is Ownable {
         uint16 Int;
         uint16 Wis;
         uint16 Cha;
+        calculated_attributes calc;
         // uint[] attributes;
         // uint16 level;
         // uint32 currentExp;
         // uint32 neededExp;
-        //
-        //
-        // uint16 bonusStr;
-        // uint16 bonusDex;
-        // uint16 bonusCon;
-        // uint16 bonusInt;
-        // uint16 bonusWis;
-        // uint16 bonusCha;
         //
         // uint16 inspiration;
         // uint16 proficiency;
@@ -47,6 +54,11 @@ contract SheetGenerator is Ownable {
         //
         // bool[] savingThrows; //True if saving throw is applicable, False if not, in order of abilities on sheet
     }
+
+    //function default_custom_attributes(calculated_attributes memory c) public view returns (bool) {
+    //  c =  calculated_attributes("Gender", 0, "height", 0, "hair", "eyes", "homeland", "deity", "alignment", 0, 0, 1);
+    //  return true;
+    //}
 
     function attributeBonuses(uint16  attribute_score) public view returns(int) {
      if(attribute_score >= 24)
@@ -105,7 +117,8 @@ contract SheetGenerator is Ownable {
     mapping (address => uint) ownerSheetCount;
 
     function createSheet(string memory _charName, string memory _race, string memory _class, uint16 _Str, uint16 _Dex, uint16 _Con, uint16 _Int, uint16 _Wis, uint16 _Cha) public {
-        uint id = sheets.push(Sheet(_charName, _race, _class, _Str, _Dex, _Con, _Int, _Wis, _Cha)) - 1;
+        calculated_attributes memory c = calculated_attributes("Gender", 0, "height", 0, "hair", "eyes", "homeland", "deity", "alignment", 0, 0, 1);
+        uint id = sheets.push(Sheet(_charName, _race, _class, _Str, _Dex, _Con, _Int, _Wis, _Cha, c)) - 1;
         sheetToOwner[id] = msg.sender;
         ownerSheetCount[msg.sender] = ownerSheetCount[msg.sender].add(1);
         emit NewSheet(id, _charName, _race, _class);
