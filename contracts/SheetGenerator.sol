@@ -60,22 +60,17 @@ contract SheetGenerator is Ownable {
         emit NewSheet(id, _charName, _race, _class);
     }
 
-    // function createRandomSheet(string memory _charName, string memory _race, string memory _class) public {
-    //     uint[] memory _attributes = new uint[](6);
-    //     uint i;
-    //     for(i = 0; i < 6; i++) {
-    //       _attributes[i] = (randMod(18));
-    //     }
-    //     createSheet(_charName, _race, _class, uint_Str, _Dex, _Con, _Int, _Wis, _Cha);
-    //     // uint id = sheets.push(Sheet(_charName, _race, _class, _attributes)) - 1;
-    //     // sheetToOwner[id] = msg.sender;
-    //     // ownerSheetCount[msg.sender] = ownerSheetCount[msg.sender].add(1);
-    //     // emit NewSheet(id, _charName, _race, _class, _attributes);
-    // }
+    function createRandomSheet(string memory _charName, string memory _race, string memory _class) public {
+        createSheet(_charName, _race, _class, uint16(randMod(6)), uint16(randMod(6)), uint16(randMod(6)), uint16(randMod(6)), uint16(randMod(6)), uint16(randMod(6)));
+    }
 
     function randMod(uint _modulus) internal returns(uint) {
         randNonce = randNonce.add(1);
-        return uint(keccak256(abi.encodePacked(now, msg.sender, randNonce))) % _modulus;
+        uint randomNum;
+        for(uint i = 0; i < 3; i++){
+          randomNum += (uint(keccak256(abi.encodePacked(now, msg.sender, randNonce))) % _modulus) + 1;
+        }
+        return randomNum;
     }
 
 }
