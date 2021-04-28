@@ -9,18 +9,26 @@ contract SheetGenerator is Ownable {
     using SafeMath32 for uint32;
     using SafeMath16 for uint16;
 
-    event NewSheet(uint sheetId, string charName, string race, string class, uint16[] attributes);
+    uint randNonce = 0;
+
+    event NewSheet(uint sheetId, string charName, string race, string class);
 
     struct Sheet {
         string charName;
         string race;
         string class;
 
+        uint16 Str;
+        uint16 Dex;
+        uint16 Con;
+        uint16 Int;
+        uint16 Wis;
+        uint16 Cha;
+        // uint[] attributes;
         // uint16 level;
         // uint32 currentExp;
         // uint32 neededExp;
         //
-        uint16[] attributes;
         //
         // uint16 bonusStr;
         // uint16 bonusDex;
@@ -45,11 +53,24 @@ contract SheetGenerator is Ownable {
     mapping (uint => address) public sheetToOwner;
     mapping (address => uint) ownerSheetCount;
 
-    function createSheet(string memory _charName, string memory _race, string memory _class, uint16[] memory _attributes) public {
-        uint id = sheets.push(Sheet(_charName, _race, _class, _attributes)) - 1;
+    function createSheet(string memory _charName, string memory _race, string memory _class, uint16 _Str, uint16 _Dex, uint16 _Con, uint16 _Int, uint16 _Wis, uint16 _Cha) public {
+        uint id = sheets.push(Sheet(_charName, _race, _class, _Str, _Dex, _Con, _Int, _Wis, _Cha)) - 1;
         sheetToOwner[id] = msg.sender;
         ownerSheetCount[msg.sender] = ownerSheetCount[msg.sender].add(1);
-        emit NewSheet(id, _charName, _race, _class, _attributes);
+        emit NewSheet(id, _charName, _race, _class);
+    }
+
+    function createRandomSheet(string memory _charName, string memory _race, string memory _class) public {
+        createSheet(_charName, _race, _class, uint16(randMod(6)), uint16(randMod(6)), uint16(randMod(6)), uint16(randMod(6)), uint16(randMod(6)), uint16(randMod(6)));
+    }
+
+    function randMod(uint _modulus) internal returns(uint) {
+        randNonce = randNonce.add(1);
+        uint randomNum;
+        for(uint i = 0; i < 3; i++){
+          randomNum += (uint(keccak256(abi.encodePacked(now, msg.sender, randNonce))) % _modulus) + 1;
+        }
+        return randomNum;
     }
 
 }
