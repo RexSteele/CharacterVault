@@ -70,7 +70,6 @@ class App extends Component {
                 path="/SheetInventory"
                 component={SheetInventory}
               />
-              {/* routes used in zombie action modal */}
               <Route exact path="/LevelUp" component={LevelUp} />
               <Route exact path="/TransferSheet" component={TransferSheet} />
             </div>
