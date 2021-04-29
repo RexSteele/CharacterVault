@@ -4,7 +4,7 @@ import "./zombieChar.css";
 class SheetChar extends Component {
 
     catMode () {
-       return (this.props.sheetClass);
+       return (this.props.sheetClass).toLowerCase();
     }
 
     render() {
@@ -90,8 +90,8 @@ class SheetChar extends Component {
             )
         } else {
             return (
-                <div className="unknown"monk>
-                    <img className="left-feet" src="static/icons/mystery.png" alt="unchosen class" />
+                <div className="unknown">
+                    <img className="torso" src="static/icons/mystery.png" alt="unchosen class" />
                 </div>
             )
         }
