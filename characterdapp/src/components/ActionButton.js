@@ -17,26 +17,30 @@ class ActionButton extends Component {
   };
 
   render() {
-    const zombieData = {
-//      zombieName: this.truncate(this.props.data.zombieName, 8, 8),
-      zombieName: this.props.data.zombieName,
-      zombieId: this.props.data.zombieId,
-      zombieDNA: this.props.data.zombieDNA,
-      zombieLevel: this.props.data.zombieLevel,
-      zombieReadyTime: this.props.data.zombieReadyTime,
-      zombieWinCount: this.props.data.zombieWinCount,
-      zombieLossCount: this.props.data.zombieLossCount
+    const sheetData = {
+//      sheetName: this.truncate(this.props.data.sheetName, 8, 8),
+      sheetName: this.props.data.sheetName,
+      sheetRace: this.props.data.sheetRace,
+      sheetClass: this.props.data.sheetClass,
+      sheetLevel: this.props.data.sheetLevel,
+      sheetStr: this.props.data.sheetStr,
+      sheetDex: this.props.data.sheetDex,
+      sheetCon: this.props.data.sheetCon,
+      sheetInt: this.props.data.sheetInt,
+      sheetWis: this.props.data.sheetWis,
+      sheetCha: this.props.data.sheetCha,
+      sheetReadyTime: this.props.data.sheetReadyTime,
     };
 
     const pathName = this.props.pathname;
     const buttonLabel = this.props.buttonLabel;
 
-    //console.log("button label", this.props.buttonLabel, pathName, zombieData);
+    //console.log("button label", this.props.buttonLabel, pathName, sheetData);
     return (
       <Link
         to={{
           pathname:  pathName ,
-          state:  zombieData
+          state:  sheetData
         }}
       >
         <Button primary disabled={this.props.disableMe}> {buttonLabel} </Button>
