@@ -10,7 +10,7 @@ import TopBar from "./components/TopBar";
 
 import Greeting from "./pages/Greeting";
 import MyZombieInventory from "./pages/MyZombieInventory";
-import ZombieInventory from "./pages/ZombieInventory";
+import ZombieInventory from "./pages/SheetInventory";
 import LevelUp from "./pages/LevelUp";
 import TransferZombie from "./pages/TransferZombie";
 
