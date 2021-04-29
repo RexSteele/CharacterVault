@@ -15,7 +15,7 @@ function mapStateToProps(state) {
 
 // Create a new Zombie
 
-class CreateZombie extends Component {
+class userSheet extends Component {
   state = {
     modalOpen: false,
     value: "",
@@ -100,4 +100,4 @@ class CreateZombie extends Component {
   }
 }
 
-export default connect(mapStateToProps)(CreateZombie);
+export default connect(mapStateToProps)(userSheet);
