@@ -9,10 +9,10 @@ import { Provider } from "react-redux";
 import TopBar from "./components/TopBar";
 
 import Greeting from "./pages/Greeting";
-import MyZombieInventory from "./pages/MyZombieInventory";
-import ZombieInventory from "./pages/SheetInventory";
+import MySheetInventory from "./pages/MySheetInventory";
+import SheetInventory from "./pages/SheetInventory";
 import LevelUp from "./pages/LevelUp";
-import TransferZombie from "./pages/TransferZombie";
+import TransferSheet from "./pages/TransferSheet";
 
 import store from "./redux/store";
 
@@ -32,8 +32,8 @@ class App extends Component {
 
     componentDidMount = async () => {
       try {
-          const CZInfo = await initBlockchain(); // from utils directory;  connect to provider and to metamask or other signer
-          await getSheetCount(CZInfo.CZ, CZInfo.userAddress); // get user count and total count of zombies
+          const CVInfo = await initBlockchain(); // from utils directory;  connect to provider and to metamask or other signer
+          await getSheetCount(CVInfo.CV, CVInfo.userAddress); // get user count and total count of zombies
       } catch (error) {
           // Catch any errors for any of the above operations.
           alert(`Failed to load provider, signer, or contract. Check console for details.`);
@@ -62,17 +62,16 @@ class App extends Component {
               <Route exact path="/" component={Greeting} />
               <Route
                 exact
-                path="/myZombieInventory"
-                component={MyZombieInventory}
+                path="/mySheetInventory"
+                component={MySheetInventory}
               />
               <Route
                 exact
-                path="/ZombieInventory"
-                component={ZombieInventory}
+                path="/SheetInventory"
+                component={SheetInventory}
               />
-              {/* routes used in zombie action modal */}
               <Route exact path="/LevelUp" component={LevelUp} />
-              <Route exact path="/TransferZombie" component={TransferZombie} />
+              <Route exact path="/TransferSheet" component={TransferSheet} />
             </div>
           </Container>
         </HashRouter>
