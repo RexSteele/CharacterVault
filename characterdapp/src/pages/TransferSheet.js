@@ -1,35 +1,35 @@
 //
-// This is the "Transfer Zombie" page
+// This is the "Transfer Sheet" page
 //
 
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { Button, Header, Icon, Form, Message } from "semantic-ui-react";
-import ZombieCard from "../components/zombieCard";
+import sheetCard from "../components/sheetCard";
 
 function mapStateToProps(state) {
     return {
-        CZ: state.CZ,
+        CV: state.CV,
         userAddress: state.userAddress
     };
 }
 
 // noinspection JSUnresolvedFunction
-class TransferZombie extends Component {
+class TransferSheet extends Component {
     state = {
         value: "",
         message: "",
         errorMessage: "",
         loading: false,
-        zombieId: null
+        sheetId: null
     };
 
 
     async componentDidMount() {
-        let zombieId = +this.props.location.state.zombieId;
+        let sheetId = +this.props.location.state.sheetId;
         this.setState({
-            zombieId
+            sheetId
         });
     }
 
@@ -41,7 +41,7 @@ class TransferZombie extends Component {
             message: "waiting for blockchain transaction to complete..."
         });
         try {
-            await this.props.CZ.transferFrom(this.props.userAddress, this.state.value, this.state.zombieId) // contains the zombie ID and the new name
+            await this.props.CZ.transferFrom(this.props.userAddress, this.state.value, this.state.sheetId) // contains the sheet ID and the new name
             this.setState({
                 loading: false,
                 message: "Y u no luv me??"
@@ -62,15 +62,19 @@ class TransferZombie extends Component {
                 <table>
                     <tr>
                         <th>
-                            <ZombieCard
-                                zombieId={this.state.zombieId}
-                                zombieName={this.props.location.state.zombieName}
-                                zombieDNA={this.props.location.state.zombieDNA}
-                                zombieLevel={this.props.location.state.zombieLevel}
-                                zombieReadyTime={this.props.location.state.zombieReadyTime}
-                                zombieWinCount={this.props.location.state.zombieWinCount}
-                                zombieLossCount={this.props.location.state.zombieLossCount}
-                                zombieOwner={this.props.userAddress}
+                            <sheetCard
+                                sheetId={this.state.sheetId}
+                                sheetName={this.props.location.state.name}
+                                sheetRace={this.props.location.state.race}
+                                sheetClass={this.props.location.state.class}
+                                sheetLevel={this.props.location.state.level}
+                                sheetStr={this.props.location.state.str}
+                                sheetDex={this.props.location.state.dex}
+                                sheetCon={this.props.location.state.con}
+                                sheetInt={this.props.location.state.int}
+                                sheetWis={this.props.location.state.wis}
+                                sheetCha={this.props.location.state.cha}
+                                sheetOwner={this.props.userAddress}
                                 myOwner={false}
                             />
                         </th>
@@ -82,7 +86,7 @@ class TransferZombie extends Component {
                 <br />
                 <Form onSubmit={this.onSubmit} error={!!this.state.errorMessage}>
                     <Form.Field>
-                        <label>Transfer Zombie</label>
+                        <label>Transfer Character Sheet</label>
                         <input
                             placeholder="New owner address"
                             onChange={event =>
@@ -95,9 +99,9 @@ class TransferZombie extends Component {
                     <Message error header="Oops!" content={this.state.errorMessage} />
                     <Button primary type="submit" loading={this.state.loading}>
                         <Icon name="check" />
-                        Transfer Zombie
+                        Transfer Character Sheet
                     </Button>
-                    <Link to="/MyZombieInventory">
+                    <Link to="/MySheetInventory">
                         <Button color="red" inverted>
                             <Icon name="cancel" /> Close
                         </Button>
@@ -110,4 +114,4 @@ class TransferZombie extends Component {
     }
 }
 
-export default connect(mapStateToProps)(TransferZombie);
+export default connect(mapStateToProps)(TransferSheet);
