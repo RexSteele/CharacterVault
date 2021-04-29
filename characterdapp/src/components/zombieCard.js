@@ -27,22 +27,6 @@ class ZombieCard extends Component {
   render() {
     // define the button labels used in <ActionButton> further on down in the code
 
-    const attackButton = (
-      <div>
-        {" "}
-        Attack Zombie <br /> (70% chance of winning){" "}
-      </div>
-    );
-    const kittyButton = (
-      <div>
-        Eat CryptoKitty <br /> (burp!){" "}
-      </div>
-    );
-    const changeNameButton = (
-      <div>
-        Change Name <br /> (level > 2){" "}
-      </div>
-    );
     const levelUpButton = (
       <div>
         Level Up
@@ -81,24 +65,6 @@ class ZombieCard extends Component {
             />
 
             <Modal.Content>
-              <ActionButton
-                pathname="/AttackZombie"
-                buttonLabel={attackButton}
-                data={this.props}
-              />
-
-              <ActionButton
-                pathname="/FeedOnKitty"
-                buttonLabel={kittyButton}
-                data={this.props}
-              />
-
-              <ActionButton
-                pathname="/ChangeName"
-                buttonLabel={changeNameButton}
-                disableMe={this.props.zombieLevel <= 2}
-                data={this.props}
-              />
 
               <ActionButton
                 pathname="/LevelUp"
