@@ -11,7 +11,7 @@ import { Menu, Header } from "semantic-ui-react";
 function mapStateToProps(state) {
   return {
     userAddress: state.userAddress,
-    userZombieCount: state.userZombieCount,
+    userSheetCount: state.userSheetCount,
     totalZombieCount: state.totalZombieCount
   };
 }
@@ -50,7 +50,7 @@ class TopBar extends Component {
         </div>
         Your current account address: {this.props.userAddress}
         <br />
-        You have {this.props.userZombieCount} character sheets out of a {this.props.totalZombieCount} in the vault.
+        You have {this.props.userSheetCount} character sheets out of a {this.props.totalZombieCount} in the vault.
         <hr />
       </div>
     );
