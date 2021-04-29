@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import getZombieCount from "../utils/getZombieCount";
+import getSheetCount from "../utils/getSheetCount";
 import { connect } from "react-redux";
 
 import { Button, Header, Icon, Modal, Form, Message } from "semantic-ui-react";
@@ -41,7 +41,7 @@ class CreateZombie extends Component {
         loading: false,
         message: "You have created a New Zombie"
       });
-      getZombieCount(this.props.CZ, this.props.userAddress);
+      getSheetCount(this.props.CZ, this.props.userAddress);
     } catch (err) {
       this.setState({
         loading: false,

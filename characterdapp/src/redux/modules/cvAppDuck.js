@@ -14,7 +14,7 @@
 // They are defined as all upper-case constants and may be exported if needed elsewhere.
 
 const BLOCKCHAIN_INITIALIZED = "BLOCKCHAIN_INITIALIZED";
-const ZOMBIE_COUNT = "ZOMBIE_COUNT";
+const SHEET_COUNT = "SHEET_COUNT";
 
 //  Actions and Action Creator Functions
 //
@@ -41,12 +41,12 @@ export function blockchainInitialized(data) {
 //
 
 const initialState = {
-    CZ: {}, // contract instance with methods, etc.
+    CV: {}, // contract instance with methods, etc.
     signer: null,
     userAddress: 0x0,
     provider: null,
-    userZombieCount: 0,
-    totalZombieCount: 0
+    userSheetCount: 0,
+    totalSheetCount: 0
 };
 
 // Reducers
@@ -66,18 +66,18 @@ export default function reducer(state = initialState, action) {
 
     case BLOCKCHAIN_INITIALIZED:
         return Object.assign({}, state, {
-            CZ: action.payload.CZ,
+            CV: action.payload.CV,
             signer: action.payload.signer,
             userAddress: action.payload.userAddress,
             provider: action.payload.provider,
-            userZombieCount: action.payload.userZombieCount
+            userSheetCount: action.payload.userSheetCount
         });
 
-    case ZOMBIE_COUNT:
-        console.log("my reducer zombie count", state);
+    case SHEET_COUNT:
+        console.log("my reducer sheet count", state);
       return Object.assign({}, state, {
-        totalZombieCount: action.payload.totalZombieCount,
-        userZombieCount: action.payload.userZombieCount
+        totalSheetCount: action.payload.totalSheetCount,
+        userSheetCount: action.payload.userSheetCount
       });
 
     default:
