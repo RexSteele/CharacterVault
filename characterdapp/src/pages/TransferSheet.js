@@ -44,7 +44,7 @@ class TransferSheet extends Component {
             await this.props.CZ.transferFrom(this.props.userAddress, this.state.value, this.state.sheetId) // contains the sheet ID and the new name
             this.setState({
                 loading: false,
-                message: "Y u no luv me??"
+                message: "Send me to faraway land???"
             });
         } catch (err) {
             this.setState({
