@@ -84,10 +84,10 @@ class ZombieInventory extends Component {
     return (
       <div>
         <hr />
-        <h2> Complete Zombie Inventory </h2>
-        The zombies you own have a yellow background; clicking anywhere on a
+        <h2> Complete Character Sheet Inventory </h2>
+        The character sheets you own have a yellow background; clicking anywhere on a
         yellow card will bring up a list of actions you can perform.
-        <hr />
+      <hr />
         <Grid columns={2} verticalAlign="middle">
           <Grid.Column>
             <Segment secondary>

@@ -22,35 +22,35 @@ class TopBar extends Component {
   render() {
     return (
       <div>
-        <Menu style={{ marginTop: "10px", backgroundColor: "Salmon" }}>
+        <Menu style={{ marginTop: "10px", backgroundColor: "LightGreen" }}>
           <Menu.Item>
             <CreateZombie />
           </Menu.Item>
 
           <Menu.Item>
             <Link to={{ pathname: "/myZombieInventory" }}>
-              <Button primary>Show My Zombies</Button>
+              <Button primary>View Saved Sheets</Button>
             </Link>
           </Menu.Item>
 
           <Menu.Item>
             <Link to={{ pathname: "/ZombieInventory" }}>
-              <Button primary>Show All Zombies</Button>
+              <Button primary>Show All Sheets in the Vault</Button>
             </Link>
           </Menu.Item>
 
           <Menu.Item position="right">
             <Link to={{ pathname: "/" }}>
-              <Header size="large">CryptoZombies at CSU!!! </Header>
+              <Header size="large">CharacterVault </Header>
             </Link>
           </Menu.Item>
         </Menu>
         <div className="center">
-          <h2>The most awesome zombies in the whole wide universe!</h2>
+          <h2>The place where your imagination is forever!</h2>
         </div>
-        Your account address: {this.props.userAddress}
+        Your current account address: {this.props.userAddress}
         <br />
-        You own {this.props.userZombieCount} zombie(s) out of a total of approximately {this.props.totalZombieCount}.
+        You have {this.props.userZombieCount} character sheets out of a {this.props.totalZombieCount} in the vault.
         <hr />
       </div>
     );

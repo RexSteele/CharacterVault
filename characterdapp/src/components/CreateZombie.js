@@ -58,19 +58,20 @@ class CreateZombie extends Component {
       <Modal
         trigger={
           <Button primary disabled={createDisabled} onClick={this.handleOpen}>
-            Create Zombie
+            Create Character Sheet
           </Button>
         }
         open={this.state.modalOpen}
         onClose={this.handleClose}
       >
-        <Header icon="browser" content="Create a New Zombie" />
+        <Header icon="browser" content="Create a new Character Sheet!" />
         <Modal.Content>
-          <img src="static/images/zombieWarrior.jpg" alt="zombie warrior" /><Header>Be sure to give your zombie a WORTHY name!!!</Header>
+          <img src="static/images/zombieWarrior.jpg" alt="zombie warrior" /><Header>Just enter a few integral fields to get started with storing your character!</Header>
           <br /> <br />
           <Form onSubmit={this.onSubmit} error={!!this.state.errorMessage}>
             <Form.Field>
-              <label>Zombie Name</label>
+            // TODO Update this form field to allow for multiple
+              <label>Character Name</label>
               <input
                 placeholder="Name"
                 onChange={event =>
@@ -83,7 +84,7 @@ class CreateZombie extends Component {
             <Message error header="Oops!" content={this.state.errorMessage} />
             <Button primary type="submit" loading={this.state.loading}>
               <Icon name="check" />
-              Create Zombie
+              Initialize Character Sheet
             </Button>
             <hr />
             <h2>{this.state.message}</h2>
