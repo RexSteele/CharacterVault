@@ -10,6 +10,8 @@ contract SheetGenerator is Ownable {
     using SafeMath16 for uint16;
 
     uint randNonce = 0;
+    uint16 startLevel = 1;
+    uint cooldownTime = 2 minutes; // 1 days;
 
     event NewSheet(uint sheetId, string charName, string race, string class);
 
@@ -18,12 +20,17 @@ contract SheetGenerator is Ownable {
         string race;
         string class;
 
+        uint16 level;
+
         uint16 Str;
         uint16 Dex;
         uint16 Con;
         uint16 Int;
         uint16 Wis;
         uint16 Cha;
+
+        uint32 readyTime;
+
         // uint[] attributes;
         // uint16 level;
         // uint32 currentExp;
@@ -104,8 +111,12 @@ contract SheetGenerator is Ownable {
     mapping (uint => address) public sheetToOwner;
     mapping (address => uint) ownerSheetCount;
 
+    function setCooldownTime(uint _seconds) public onlyOwner {
+        cooldownTime = _seconds;
+    }
+
     function createSheet(string memory _charName, string memory _race, string memory _class, uint16 _Str, uint16 _Dex, uint16 _Con, uint16 _Int, uint16 _Wis, uint16 _Cha) public {
-        uint id = sheets.push(Sheet(_charName, _race, _class, _Str, _Dex, _Con, _Int, _Wis, _Cha)) - 1;
+        uint id = sheets.push(Sheet(_charName, _race, _class, startLevel, _Str, _Dex, _Con, _Int, _Wis, _Cha, uint32(now + cooldownTime))) - 1;
         sheetToOwner[id] = msg.sender;
         ownerSheetCount[msg.sender] = ownerSheetCount[msg.sender].add(1);
         emit NewSheet(id, _charName, _race, _class);

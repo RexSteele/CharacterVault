@@ -1,1 +1,2 @@
 # CharacterVault
+Rinkeby contract address: 0xD58dB17048507c6A4f9843cc42beE2c6bCb95d1C

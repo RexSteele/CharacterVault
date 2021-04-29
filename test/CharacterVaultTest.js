@@ -36,7 +36,57 @@ describe("CharacterVault", function() {
       const x = await CVinstance.sheets(0);
       console.log(x);
       expect(x.charName[0]).to.not.equal(attributes[0]);
+      expect(x.level).to.equal(1);
     });
+  });
+
+  describe("Transfer a sheet", function() {
+    it("Should transfer a sheet", async () => {
+      await expect(CVinstance.createRandomSheet(characterNames[1], classes[1], races[1]))
+          .to.emit(CVinstance, "NewSheet")
+
+      const sheetId = 0;
+      await CVinstance.transferFrom(alice.address, bob.address, sheetId);
+      const newOwner = await CVinstance.ownerOf(sheetId);
+      expect(newOwner).to.equal(bob.address);
+    });
+  });
+
+  describe("Two-step transfer scenario", async () => {
+    it("should approve and then transfer a sheet when the approved address calls transferFrom", async () => {
+      await expect(CVinstance.createRandomSheet(characterNames[1], classes[1], races[1]))
+          .to.emit(CVinstance, "NewSheet")
+
+      const sheetId = 0;
+      await CVinstance.approve(bob.address, sheetId);
+      await CVinstance.connect(bob).transferFrom(alice.address, bob.address, sheetId);
+      const newOwner = await CVinstance.ownerOf(sheetId);
+      expect(newOwner).to.equal(bob.address);
+    })
+
+    it("should approve and then transfer a sheet when the owner calls transferFrom", async () => {
+      await expect(CVinstance.createRandomSheet(characterNames[1], classes[1], races[1]))
+          .to.emit(CVinstance, "NewSheet")
+
+      const sheetId = 0;
+      await CVinstance.approve(bob.address, sheetId);
+      await CVinstance.transferFrom(alice.address, bob.address, sheetId);
+      const newOwner = await CVinstance.ownerOf(sheetId);
+      expect(newOwner).to.equal(bob.address);
+    })
+  })
+
+  describe('Sheet level up and stat changes', async () => {
+    it("Should be able to level sheet up", async () => {
+      await CVinstance.setCooldownTime(0);
+      await CVinstance.createRandomSheet(characterNames[1], classes[1], races[1]);
+      const sheetId = 0;
+      await CVinstance.levelUp(sheetId);
+      await CVinstance.changeStr(sheetId,100);
+      const s = await CVinstance.sheets(0);
+      expect(s.level).to.equal(2);
+      expect(s.Str).to.equal(100);
+    })
   });
 })
 
