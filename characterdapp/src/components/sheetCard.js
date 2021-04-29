@@ -39,10 +39,10 @@ class SheetCard extends Component {
         </div>
     );
 
-    // create the JSX depending on whether you own the zombie or not
+    // create the JSX depending on whether you own the sheet or not
 
     if (this.props.myOwner)
-      // Owner sheet: render card and tooltip and modal for zombie actions
+      // Owner sheet: render card and tooltip and modal for sheet actions
 
       return (
         <Card style={{ backgroundColor: "DarkPurple" }} raised>
@@ -50,10 +50,10 @@ class SheetCard extends Component {
 
           <a
             href="javascript:;"
-            data-tip="Click on me to view actions for this zombie"
+            data-tip="Click on me to view actions for this sheet"
             onClick={e => this.modalOpen(e)}
           >
-            <SheetCardContent zombie={this.props} />
+            <SheetCardContent sheet={this.props} />
           </a>
 
           {/* a modal is like an "alert", it's a popup that greys out the lower screen and displays its content on top of everything */}
@@ -61,7 +61,7 @@ class SheetCard extends Component {
           <Modal open={this.state.modalOpen} onClose={this.handleClose}>
             <Header
               icon="browser"
-              content="These are the actions you can take with your zombie!"
+              content="These are the actions you can take with your sheet!"
             />
 
             <Modal.Content>
