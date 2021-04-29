@@ -2,9 +2,9 @@ import React, { Component } from "react";
 import { Icon, Card, Header, Modal, Button } from "semantic-ui-react";
 import ReactTooltip from "react-tooltip";
 import ActionButton from "./ActionButton";
-import ZombieCardContent from "./zombieCardContent";
+import SheetCardContent from "./sheetCardContent";
 
-class ZombieCard extends Component {
+class SheetCard extends Component {
   state = {
     modalOpen: false
   };
@@ -33,19 +33,19 @@ class ZombieCard extends Component {
         <br /> (cost = .001 eth){" "}
       </div>
     );
-    const transferZombieButton = (
+    const transferSheetButton = (
         <div>
-          Transfer Zombie <br /> :({" "}
+          Transfer Sheet <br /> :({" "}
         </div>
     );
 
     // create the JSX depending on whether you own the zombie or not
 
     if (this.props.myOwner)
-      // Owner zombie: render card and tooltip and modal for zombie actions
+      // Owner sheet: render card and tooltip and modal for zombie actions
 
       return (
-        <Card style={{ backgroundColor: "LightYellow" }} raised>
+        <Card style={{ backgroundColor: "DarkPurple" }} raised>
           <ReactTooltip delayShow={400} />
 
           <a
@@ -53,7 +53,7 @@ class ZombieCard extends Component {
             data-tip="Click on me to view actions for this zombie"
             onClick={e => this.modalOpen(e)}
           >
-            <ZombieCardContent zombie={this.props} />
+            <SheetCardContent zombie={this.props} />
           </a>
 
           {/* a modal is like an "alert", it's a popup that greys out the lower screen and displays its content on top of everything */}
@@ -73,8 +73,8 @@ class ZombieCard extends Component {
               />
 
               <ActionButton
-                pathname="/TransferZombie"
-                buttonLabel={transferZombieButton}
+                pathname="/TransferSheet"
+                buttonLabel={transferSheetButton}
                 data={this.props}
               />
 
@@ -88,14 +88,14 @@ class ZombieCard extends Component {
           </Modal>
         </Card>
       );
-    // someone else's zombie.  just show the card.
+    // someone else's sheet.
     else
       return (
-        <Card style={{ backgroundColor: "LavenderBlush" }}>
-          <ZombieCardContent zombie={this.props} />
+        <Card style={{ backgroundColor: "CadetBlue" }}>
+          <SheetCardContent sheet={this.props} />
         </Card>
       );
   }
 }
 
-export default ZombieCard;
+export default SheetCard;
