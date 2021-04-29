@@ -1,59 +1,64 @@
 import React, { Component } from "react";
 import { Card, Grid, Input, Segment, Pagination } from "semantic-ui-react";
 import { connect } from "react-redux";
-import ZombieCard from "../components/zombieCard";
+import SheetCard from "../components/sheetCard";
 
 function mapStateToProps(state) {
   return {
-    CZ: state.CZ,
-    userZombieCount: state.userZombieCount,
+    CV: state.CV,
+    userSheetCount: state.userSheetCount,
     userAddress: state.userAddress
   };
 }
 
-class MyZombieInventory extends Component {
+class MySheetInventory extends Component {
   state = {
-    ZombieTable: [],
+    SheetTable: [],
     activePage: 1,
-    totalPages: Math.ceil(this.props.userZombieCount / 9)
+    totalPages: Math.ceil(this.props.userSheetCount / 9)
   };
 
   componentDidMount = async () => {
-    await this.makeZombieCards();
+    await this.makeSheetCards();
   };
 
   onChange = async (e, pageInfo) => {
     await this.setState({ activePage: pageInfo.activePage });
-    this.makeZombieCards();
+    this.makeSheetCards();
   };
 
   handleInputChange = async (e, { value }) => {
     await this.setState({ activePage: value });
-    this.makeZombieCards();
+    this.makeSheetCards();
   };
-  makeZombieCards = async () => {
-    const myZombies = await this.props.CZ.getZombiesByOwner(this.props.userAddress);
-    let zombieTable = [];
+  makeSheetCards = async () => {
+    const mySheets = await this.props.CV.getSheetsByOwner(this.props.userAddress);
+    let sheetTable = [];
     for (
       var i = this.state.activePage * 9 - 9;
       i < this.state.activePage * 9;
       i++
     ) {
       try {
-        let z = myZombies[i];
-        let zombie = await this.props.CZ.zombies(z);
-        let myDate = new Date(zombie.readyTime * 1000).toLocaleString();
-        zombieTable.push(
-          <ZombieCard
-            key={z}
-            zombieId={z.toString()}
-            zombieName={zombie.name}
-            zombieDNA={zombie.dna.toString()}
-            zombieLevel={zombie.level}
-            zombieReadyTime={myDate}
-            zombieWinCount={zombie.winCount}
-            zombieLossCount={zombie.lossCount}
-            zombieOwner={this.props.userAddress}
+        let s = mySheets[i];
+        let sheet = await this.props.CV.sheets(s);
+        let myDate = new Date(sheet.readyTime * 1000).toLocaleString();
+        sheetTable.push(
+          <SheetCard
+            key={s}
+            sheetId={s.toString()}
+            sheetName={sheet.name}
+            sheetRace={sheet.race}
+            sheetClass={sheet.class}
+            sheetLevel={sheet.level}
+            sheetStr={sheet.str}
+            sheetDex={sheet.dex}
+            sheetCon={sheet.con}
+            sheetInt={sheet.int}
+            sheetWis={sheet.wis}
+            sheetCha={sheet.cha}
+            sheetReadyTime={myDate}
+            sheetOwner={this.props.userAddress}
             myOwner={true}
           />
         );
@@ -61,16 +66,16 @@ class MyZombieInventory extends Component {
         break;
       }
     }
-    this.setState({ zombieTable });
+    this.setState({ sheetTable });
   };
 
   render() {
     return (
       <div>
         <hr />
-        <h2> Your Zombie Inventory </h2>
-        The zombies you own have a yellow background; clicking anywhere on a
-        yellow card will bring up a list of actions you can perform.
+        <h2> Your Character Sheet Inventory </h2>
+        The character sheets you own have a purple background; clicking anywhere on a
+        purple card will bring up a list of actions you can perform.
         <hr />
         <Grid columns={2} verticalAlign="middle">
           <Grid.Column>
@@ -94,10 +99,10 @@ class MyZombieInventory extends Component {
           </Grid.Column>
         </Grid>
         <br /> <br />
-        <Card.Group> {this.state.zombieTable} </Card.Group>
+        <Card.Group> {this.state.sheetTable} </Card.Group>
       </div>
     );
   }
 }
 
-export default connect(mapStateToProps)(MyZombieInventory);
+export default connect(mapStateToProps)(MySheetInventory);
