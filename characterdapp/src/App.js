@@ -11,9 +11,6 @@ import TopBar from "./components/TopBar";
 import Greeting from "./pages/Greeting";
 import MyZombieInventory from "./pages/MyZombieInventory";
 import ZombieInventory from "./pages/ZombieInventory";
-import AttackZombie from "./pages/AttackZombie";
-import FeedOnKitty from "./pages/FeedOnKitty";
-import ChangeName from "./pages/ChangeName";
 import LevelUp from "./pages/LevelUp";
 import TransferZombie from "./pages/TransferZombie";
 
@@ -74,9 +71,6 @@ class App extends Component {
                 component={ZombieInventory}
               />
               {/* routes used in zombie action modal */}
-              <Route exact path="/AttackZombie" component={AttackZombie} />
-              <Route exact path="/FeedOnKitty" component={FeedOnKitty} />
-              <Route exact path="/ChangeName" component={ChangeName} />
               <Route exact path="/LevelUp" component={LevelUp} />
               <Route exact path="/TransferZombie" component={TransferZombie} />
             </div>
