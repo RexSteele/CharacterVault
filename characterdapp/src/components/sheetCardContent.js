@@ -26,12 +26,12 @@ class SheetCardContent extends Component {
         <Card.Description>
           Race: {this.props.sheet.race} <br />
           Class: {this.props.sheet.class} <br />
-          Str: {this.props.sheet.Str} <br />
-          Dex: {this.props.sheet.Dex} <br />
-          Con: {this.props.sheet.Con} <br />
-          Int: {this.props.sheet.Int} <br />
-          Wis: {this.props.sheet.Wis} <br />
-          Cha: {this.props.sheet.Cha} <br />
+          Str: {this.props.sheet.str} <br />
+          Dex: {this.props.sheet.dex} <br />
+          Con: {this.props.sheet.con} <br />
+          Int: {this.props.sheet.int} <br />
+          Wis: {this.props.sheet.wis} <br />
+          Cha: {this.props.sheet.cha} <br />
         </Card.Description>
       </Card.Content>
     );
