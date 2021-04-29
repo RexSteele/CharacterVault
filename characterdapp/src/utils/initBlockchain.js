@@ -1,4 +1,4 @@
-//import CryptoZombiesContract from "../contract_ABI/CharacterVault.sol/CharacterVault.json";
+import CharacterVaultContract from "../contract_ABI/CharacterVault.sol/CharacterVault.json";
 import store from "../redux/store";
 import { ethers } from "ethers";
 
