@@ -65,8 +65,8 @@ class SheetInventory extends Component {
       sheetTable.push(
         <SheetCard
           key={i}
-          sheetId={this.state.activePage * 9 - 9 + i}
-          sheetName={sList[i].name}
+          sheetId={i.toString()}
+          sheetName={sList[i].charName}
           sheetRace={sList[i].race}
           sheetClass={sList[i].class}
           sheetStr={sList[i].str}
