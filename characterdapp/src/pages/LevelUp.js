@@ -63,7 +63,7 @@ class LevelUp extends Component {
         *
         <Header
           icon="browser"
-          content="GO FORTH AND GAIN EXPERIENCE!  Then come back to level me up! It only costs .001 ether."
+          content="GO FORTH AND GAIN EXPERIENCE!  Then come back to level me up!"
         />
         <table>
           <tr>
