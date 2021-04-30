@@ -6,33 +6,30 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { Button, Header, Icon, Form, Message } from "semantic-ui-react";
-import ZombieCard from "../components/zombieCard";
+import SheetCard from "../components/sheetCard";
 
 import { ethers } from "ethers";
 
 function mapStateToProps(state) {
   return {
     web3Instance: state.web3Instance,
-    CZ: state.CZ,
+    CV: state.CV,
     userAddress: state.userAddress
   };
 }
 
 class LevelUp extends Component {
   state = {
-    value: "",
     message: "",
     errorMessage: "",
     loading: false,
-    zombieId: null
+    sheetId: null
   };
 
-  // get a random cryptokitty image and the hungry zombie ID when the component mounts
-
   async componentDidMount() {
-    let zombieId = +this.props.location.state.zombieId;
+    let sheetId = +this.props.location.state.sheetId;
     this.setState({
-      zombieId
+      sheetId
     });
   }
 
@@ -44,11 +41,11 @@ class LevelUp extends Component {
       message: "waiting for blockchain transaction to complete..."
     });
     try {
-      await this.props.CZ
-        .levelUp(this.state.zombieId, {value: ethers.utils.parseEther(".001")})
+      await this.props.CV
+        .levelUp(this.state.sheetId)
       this.setState({
         loading: false,
-        message: "Yay!!!!  I have more power!"
+        message: "PHENOMINAL COSMIC POWER...itty bitty living space."
       });
     } catch (err) {
       this.setState({
@@ -65,26 +62,31 @@ class LevelUp extends Component {
         *
         <Header
           icon="browser"
-          content="Please buy me some super-strength!!  It only costs .001 ether."
+          content="GO FORTH AND GAIN EXPERIENCE!  Then come back to level me up!"
         />
         <table>
           <tr>
             <th>
-              <ZombieCard
-                zombieId={this.state.zombieId}
-                zombieName={this.props.location.state.zombieName}
-                zombieDNA={this.props.location.state.zombieDNA}
-                zombieLevel={this.props.location.state.zombieLevel}
-                zombieReadyTime={this.props.location.state.zombieReadyTime}
-                zombieWinCount={this.props.location.state.zombieWinCount}
-                zombieLossCount={this.props.location.state.zombieLossCount}
-                zombieOwner={this.props.userAddress}
-                myOwner={false}
+              <SheetCard
+                key={this.props.key}
+                sheetId={this.props.toString()}
+                sheetName={this.props.location.state.name}
+                sheetRace={this.props.location.state.race}
+                sheetClass={this.props.location.state.class}
+                sheetLevel={this.props.location.state.level}
+                sheetStr={this.props.location.state.sheetStr}
+                sheetDex={this.props.location.state.sheetDex}
+                sheetCon={this.props.location.state.sheetCon}
+                sheetInt={this.props.location.state.sheetInt}
+                sheetWis={this.props.location.state.sheetWis}
+                sheetCha={this.props.location.state.sheetCha}
+                sheetReadyTime={this.props.myDate}
+                sheetOwner={this.props.sheetOwner}
               />
             </th>
             <th>
               <img
-                src="static/images/LevelUp.jpg"
+                src="static/images/DND_levelup.jpg"
                 width="400px"
                 alt="LevelUp"
               />
@@ -98,7 +100,7 @@ class LevelUp extends Component {
             <Icon name="check" />
             Level up!
           </Button>
-          <Link to="/MyZombieInventory">
+          <Link to="/MySheetInventory">
             <Button color="red" inverted>
               <Icon name="cancel" /> Close
             </Button>
