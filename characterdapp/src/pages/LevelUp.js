@@ -6,7 +6,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { Button, Header, Icon, Form, Message } from "semantic-ui-react";
-import ZombieCard from "../components/zombieCard";
+import ZombieCard from "../components/sheetCard";
 
 import { ethers } from "ethers";
 
