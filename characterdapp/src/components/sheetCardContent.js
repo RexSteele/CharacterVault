@@ -36,7 +36,7 @@ class SheetCardContent extends Component {
           Wis: {this.props.sheet.sheetWis} <br />
           Cha: {this.props.sheet.sheetCha} <br />
           ReadyTime: {this.props.sheet.sheetReadyTime} <br />
-          Owner: {this.props.sheet.sheetOwner}
+          Owner: {this.truncate(this.props.sheet.sheetOwner, 12, 12)}
         </Card.Description>
       </Card.Content>
     );
