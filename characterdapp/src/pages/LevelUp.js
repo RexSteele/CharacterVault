@@ -20,7 +20,6 @@ function mapStateToProps(state) {
 
 class LevelUp extends Component {
   state = {
-    value: "",
     message: "",
     errorMessage: "",
     loading: false,
@@ -43,7 +42,7 @@ class LevelUp extends Component {
     });
     try {
       await this.props.CV
-        .levelUp(this.state.sheetId, {value: ethers.utils.parseEther(".001")})
+        .levelUp(this.state.sheetId)
       this.setState({
         loading: false,
         message: "PHENOMINAL COSMIC POWER...itty bitty living space."
