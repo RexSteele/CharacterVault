@@ -59,7 +59,7 @@ class CreateRandomSheet extends Component {
             <Modal
                 trigger={
                     <Button onClick={this.handleOpen}>
-                        Create Character
+                        Character with Random Stats
                     </Button>
                 }
                 open={this.state.modalOpen}

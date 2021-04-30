@@ -17,27 +17,26 @@ class SheetCardContent extends Component {
       <Card.Content>
         <div>
           {" "}
-          <SheetChar Character Name={this.props.sheetName} />{" "}
+          <SheetChar name={this.props.sheet.sheetName} />{" "}
         </div>
         <Card.Header>
           Level: <b>{this.props.sheet.sheetLevel}</b> <br /> Race :{" "}
           <b>{this.truncate(this.props.sheet.sheetRace, 8, 8)}</b>
         </Card.Header>
         <Card.Description>
-          key={this.props.key}
-          sheetId={this.props.toString()}
-          sheetName={this.props.sheetName}
-          sheetRace={this.props.sheetRace}
-          sheetClass={this.props.sheetClass}
-          sheetLevel={this.props.sheetLevel}
-          sheetStr={this.props.sheetStr}
-          sheetDex={this.props.sheetDex}
-          sheetCon={this.props.sheetCon}
-          sheetInt={this.props.sheetInt}
-          sheetWis={this.props.sheetWis}
-          sheetCha={this.props.sheetCha}
-          sheetReadyTime={this.props.sheetReadyTime}
-          sheetOwner={this.props.sheetOwner}
+          sheetId={this.props.sheet.sheetId}
+          sheetName={this.props.sheet.sheetName}
+          sheetRace={this.props.sheet.sheetRace}
+          sheetClass={this.props.sheet.sheetClass}
+          sheetLevel={this.props.sheet.sheetLevel}
+          sheetStr={this.props.sheet.sheetStr}
+          sheetDex={this.props.sheet.sheetDex}
+          sheetCon={this.props.sheet.sheetCon}
+          sheetInt={this.props.sheet.sheetInt}
+          sheetWis={this.props.sheet.sheetWis}
+          sheetCha={this.props.sheet.sheetCha}
+          sheetReadyTime={this.props.sheet.sheetReadyTime}
+          sheetOwner={this.props.sheet.sheetOwner}
         </Card.Description>
       </Card.Content>
     );

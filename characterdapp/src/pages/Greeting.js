@@ -17,7 +17,7 @@ class Greeting extends Component {
           Welcome to <b> Character Vault</b>, where your imagination is forever!
         </h2>
         <br />
-        <img src="static/images/DND_Icon.jpg.jpg" style={imgStyle} width="400px" alt="D&D Icon" />
+        <img src="static/images/DND_Icon.jpg" style={imgStyle} width="400px" alt="D&D Icon" />
         <br /> <br />
         <p style={{ textAlign: "center" }}>
         <b>This application allows you to create  and store on a blockhain virtual
