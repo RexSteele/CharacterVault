@@ -69,12 +69,12 @@ class SheetInventory extends Component {
           sheetName={sList[i].charName}
           sheetRace={sList[i].race}
           sheetClass={sList[i].class}
-          sheetStr={sList[i].str}
-          sheetDex={sList[i].dex}
-          sheetCon={sList[i].con}
-          sheetInt={sList[i].int}
-          sheetWis={sList[i].wis}
-          sheetCha={sList[i].cha}
+          sheetStr={sList[i].Str}
+          sheetDex={sList[i].Dex}
+          sheetCon={sList[i].Con}
+          sheetInt={sList[i].Int}
+          sheetWis={sList[i].Wis}
+          sheetCha={sList[i].Cha}
           sheetReadyTime={myDate}
           sheetOwner={sOwner[i]}
           myOwner={this.props.userAddress === sOwner[i]}
