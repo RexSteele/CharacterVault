@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Card } from "semantic-ui-react";
-import sheetChar from "./sheetChar";
+import SheetChar from "./sheetChar";
 
 class SheetCardContent extends Component {
   truncate = (text, startChars, endChars) => {
