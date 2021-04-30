@@ -86,7 +86,7 @@ class LevelUp extends Component {
             </th>
             <th>
               <img
-                src="static/images/DND_levelup.jpg"
+                src="./icons/level_up.jpg"
                 width="400px"
                 alt="LevelUp"
               />

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import getSheetCount from "../utils/getSheetCount";
 import { connect } from "react-redux";
-
+import image from "./generic_character.png";
 import { Button, Header, Icon, Modal, Form, Message } from "semantic-ui-react";
 
 function mapStateToProps(state) {
@@ -74,7 +74,7 @@ class CreateSheet extends Component {
       >
         <Header icon="browser" content="Create a New Character Sheet" />
         <Modal.Content>
-          <img src="static/images/sheetWarrior.jpg" alt="sheet warrior" /><Header> Enter your character's name,
+          <img src={image} alt="sheet warrior" /><Header> Enter your character's name,
           race, class, strength, dexterity, constitution, intelligence, wisdom, and charisma to put them in the
           Character Vault.<br/><br/> Your name, race, and class are permanent!</Header>
           <br /> <br />
