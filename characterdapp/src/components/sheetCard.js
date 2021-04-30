@@ -30,7 +30,7 @@ class SheetCard extends Component {
     const levelUpButton = (
       <div>
         Level Up
-        <br /> (cost = .001 eth){" "}
+        <br /> {" "}
       </div>
     );
     const transferSheetButton = (

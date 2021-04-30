@@ -1,6 +1,6 @@
-const CharacterVaultContract = require("../contract_ABI/CharacterVault.sol/CharacterVault.json");
 import store from "../redux/store";
 import { ethers } from "ethers";
+const CharacterVaultContract = require("../contract_ABI/CharacterVault.sol/CharacterVault.json");
 
 export const BLOCKCHAIN_INITIALIZED = "BLOCKCHAIN_INITIALIZED"; // action type
 
@@ -43,8 +43,8 @@ const initBlockchain = async () => {
 
     let CV = null;
     console.log("READ ABI");
-    const abi = JSON.parse(CharacterVaultContract).abi;
-
+    console.log(CharacterVaultContract.abi);
+    const abi = CharacterVaultContract.abi;
     CV = new ethers.Contract('0xD58dB17048507c6A4f9843cc42beE2c6bCb95d1C', abi, signer);
     // put state data into the REDUX store for easy access from other pages and components
 
