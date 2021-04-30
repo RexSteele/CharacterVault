@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 
+import DND_ICON from "./icons/DND_ICON.jpg"
+
 class Greeting extends Component {
   render() {
     const imgStyle = {
@@ -12,12 +14,12 @@ class Greeting extends Component {
     return (
       <div>
         <br />
-        <h2 style={{ color: "DarkRed", textAlign: "center" }}>
+        <h2 style={{ color: "LightGreen", textAlign: "center" }}>
           {" "}
           Welcome to <b> Character Vault</b>, where your imagination is forever!
         </h2>
         <br />
-        <img src="static/images/DND_Icon.jpg" style={imgStyle} width="400px" alt="D&D Icon" />
+        <img src={DND_ICON} style={imgStyle} width="400px" alt="D&D Icon" />
         <br /> <br />
         <p style={{ textAlign: "center" }}>
         <b>This application allows you to create  and store on a blockhain virtual
