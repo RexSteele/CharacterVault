@@ -8,7 +8,6 @@ import { connect } from "react-redux";
 import { Button, Header, Icon, Form, Message } from "semantic-ui-react";
 import SheetCard from "../components/sheetCard";
 
-import { ethers } from "ethers";
 
 function mapStateToProps(state) {
   return {

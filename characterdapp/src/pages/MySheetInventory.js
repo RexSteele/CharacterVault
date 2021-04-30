@@ -42,12 +42,13 @@ class MySheetInventory extends Component {
       try {
         let s = mySheets[i];
         let sheet = await this.props.CV.sheets(s);
+        console.log(sheet);
         let myDate = new Date(sheet.readyTime * 1000).toLocaleString();
         sheetTable.push(
           <SheetCard
             key={s}
             sheetId={s.toString()}
-            sheetName={sheet.name}
+            sheetName={sheet.charName}
             sheetRace={sheet.race}
             sheetClass={sheet.class}
             sheetLevel={sheet.level}

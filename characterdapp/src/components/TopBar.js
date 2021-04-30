@@ -46,7 +46,7 @@ class TopBar extends Component {
 
           <Menu.Item position="right">
             <Link to={{ pathname: "/" }}>
-              <Header size="large">Character Vault Home</Header>
+              <Header size="large">Character Vault</Header>
             </Link>
           </Menu.Item>
         </Menu>
