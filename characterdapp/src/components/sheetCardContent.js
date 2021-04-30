@@ -17,7 +17,7 @@ class SheetCardContent extends Component {
       <Card.Content>
         <div>
           {" "}
-          <SheetChar name={this.props.sheet.sheetName} />{" "}
+          <SheetChar class={this.props.sheet.sheetClass} />{" "}
         </div>
         <Card.Header>
           Level: <b>{this.props.sheet.sheetLevel}</b> <br /> Name :{" "}
