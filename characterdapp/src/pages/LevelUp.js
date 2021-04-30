@@ -26,9 +26,10 @@ class LevelUp extends Component {
   };
 
   async componentDidMount() {
-    let sheetId = +this.props.location.state.sheetId;
+    let id = this.props.location.state.sheetId;
+    console.log(id);
     this.setState({
-      sheetId
+      sheetId: id
     });
   }
 
@@ -67,20 +68,19 @@ class LevelUp extends Component {
           <tr>
             <th>
               <SheetCard
-                key={this.props.key}
-                sheetId={this.props.toString()}
-                sheetName={this.props.location.state.name}
-                sheetRace={this.props.location.state.race}
-                sheetClass={this.props.location.state.class}
-                sheetLevel={this.props.location.state.level}
+                sheetId={this.state.sheetId}
+                sheetName={this.props.location.state.sheetName}
+                sheetRace={this.props.location.state.sheetRace}
+                sheetClass={this.props.location.state.sheetClass}
+                sheetLevel={this.props.location.state.sheetLevel}
                 sheetStr={this.props.location.state.sheetStr}
                 sheetDex={this.props.location.state.sheetDex}
                 sheetCon={this.props.location.state.sheetCon}
                 sheetInt={this.props.location.state.sheetInt}
                 sheetWis={this.props.location.state.sheetWis}
                 sheetCha={this.props.location.state.sheetCha}
-                sheetReadyTime={this.props.myDate}
-                sheetOwner={this.props.sheetOwner}
+                sheetOwner={this.props.userAddress}
+                myOwner={false}
               />
             </th>
             <th>
