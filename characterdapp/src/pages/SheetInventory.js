@@ -69,6 +69,7 @@ class SheetInventory extends Component {
           sheetName={sList[i].charName}
           sheetRace={sList[i].race}
           sheetClass={sList[i].class}
+          sheetLevel={sList[i].level}
           sheetStr={sList[i].Str}
           sheetDex={sList[i].Dex}
           sheetCon={sList[i].Con}
