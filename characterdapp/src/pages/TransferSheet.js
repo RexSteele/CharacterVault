@@ -41,7 +41,7 @@ class TransferSheet extends Component {
             message: "waiting for blockchain transaction to complete..."
         });
         try {
-            await this.props.CZ.transferFrom(this.props.userAddress, this.state.value, this.state.sheetId) // contains the sheet ID and the new name
+            await this.props.CV.transferFrom(this.props.userAddress, this.state.value, this.state.sheetId) // contains the sheet ID and the new name
             this.setState({
                 loading: false,
                 message: "Send me to faraway land???"
