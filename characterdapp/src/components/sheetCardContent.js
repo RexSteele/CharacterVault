@@ -25,7 +25,6 @@ class SheetCardContent extends Component {
         </Card.Header>
         <Card.Description>
           Id: {this.props.sheet.sheetId} <br />
-          Name: {this.props.sheet.sheetName} <br />
           Race: {this.props.sheet.sheetRace} <br />
           Class: {this.props.sheet.sheetClass} <br />
           Level: {this.props.sheet.sheetLevel} <br />
