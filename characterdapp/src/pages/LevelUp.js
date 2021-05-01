@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { Button, Header, Icon, Form, Message } from "semantic-ui-react";
 import SheetCard from "../components/sheetCard";
+import levelup from "./level_up.jpg"
 
 
 function mapStateToProps(state) {
@@ -86,7 +87,7 @@ class LevelUp extends Component {
             </th>
             <th>
               <img
-                src="static/images/DND_levelup.jpg"
+                src={levelup}
                 width="400px"
                 alt="LevelUp"
               />

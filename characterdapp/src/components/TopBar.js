@@ -23,7 +23,7 @@ class TopBar extends Component {
   render() {
     return (
       <div>
-        <Menu style={{ marginTop: "10px", backgroundColor: "Salmon" }}>
+        <Menu style={{ marginTop: "10px", backgroundColor: "LightGreen" }}>
           <Menu.Item>
             <CreateSheet />
           </Menu.Item>

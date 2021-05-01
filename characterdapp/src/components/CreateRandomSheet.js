@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import getSheetCount from "../utils/getSheetCount";
 import { connect } from "react-redux";
-
+import character_img from "./generic_character.png";
 import { Button, Header, Icon, Modal, Form, Message } from "semantic-ui-react";
 
 function mapStateToProps(state) {
@@ -67,7 +67,7 @@ class CreateRandomSheet extends Component {
             >
                 <Header icon="browser" content="Create a New Character Sheet" />
                 <Modal.Content>
-                    <img src="static/images/sheetWarrior.jpg" alt="sheet warrior" /><Header> Enter your character's name,
+                    <img src={character_img} alt="sheet warrior" /><Header> Enter your character's name,
                     race, and class and generate random character attributes to be stored in the
                     Character Vault.<br/><br/> Your name, race, and class are permanent!</Header>
                     <br /> <br />
