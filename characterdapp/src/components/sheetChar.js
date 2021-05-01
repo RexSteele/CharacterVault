@@ -4,7 +4,6 @@ import "./sheetChar.css";
 class SheetChar extends Component {
 
     getName () {
-        console.log(this.props.class);
         return (this.props.class).toLowerCase();
     }
 
