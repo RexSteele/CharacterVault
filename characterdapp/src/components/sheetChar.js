@@ -3,8 +3,9 @@ import "./sheetChar.css";
 
 class SheetChar extends Component {
 
-    catMode () {
-       return (this.props.sheetClass).toLowerCase();
+    getName () {
+        console.log(this.props.class);
+        return (this.props.class).toLowerCase();
     }
 
     render() {

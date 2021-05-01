@@ -18,6 +18,7 @@ class ActionButton extends Component {
 
   render() {
     const sheetData = {
+      sheetId: this.props.data.sheetId,
       sheetName: this.truncate(this.props.data.sheetName, 8, 8),
       sheetRace: this.props.data.sheetRace,
       sheetClass: this.props.data.sheetClass,
