@@ -13,6 +13,7 @@ import MySheetInventory from "./pages/MySheetInventory";
 import SheetInventory from "./pages/SheetInventory";
 import LevelUp from "./pages/LevelUp";
 import TransferSheet from "./pages/TransferSheet";
+import AlterAbility from "./pages/AlterAbility";
 
 import store from "./redux/store";
 
@@ -72,6 +73,7 @@ class App extends Component {
               />
               <Route exact path="/LevelUp" component={LevelUp} />
               <Route exact path="/TransferSheet" component={TransferSheet} />
+              <Route exact path="/AlterAbility" component={AlterAbility} />
             </div>
           </Container>
         </HashRouter>

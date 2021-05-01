@@ -38,6 +38,11 @@ class SheetCard extends Component {
           Transfer Sheet <br /> :({" "}
         </div>
     );
+    const alterAbilityButton = (
+        <div>
+          Alter Ability Score <br /> {" "}
+        </div>
+    );
 
     // create the JSX depending on whether you own the sheet or not
 
@@ -75,6 +80,12 @@ class SheetCard extends Component {
               <ActionButton
                 pathname="/TransferSheet"
                 buttonLabel={transferSheetButton}
+                data={this.props}
+              />
+
+              <ActionButton
+                pathname="/AlterAbility"
+                buttonLabel={alterAbilityButton}
                 data={this.props}
               />
 

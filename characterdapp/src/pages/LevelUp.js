@@ -28,7 +28,6 @@ class LevelUp extends Component {
 
   async componentDidMount() {
     let id = this.props.location.state.sheetId;
-    console.log(id);
     this.setState({
       sheetId: id
     });
