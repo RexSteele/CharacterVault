@@ -3,86 +3,87 @@ import "./sheetChar.css";
 
 class SheetChar extends Component {
 
-    catMode () {
-       return (this.props.sheetClass).toLowerCase();
+    getName () {
+        console.log(this.props.class);
+        return (this.props.class).toLowerCase();
     }
 
     render() {
 
-        if (this.catMode() === "barbarian") {
+        if (this.getName() === "barbarian") {
             return (
                 <div className="character-class-preview">
                     <img  className="torso" src="static/icons/barbarian.png" alt="class" />
                 </div>
             )
           }
-        if (this.catMode() === "bard") {
+        if (this.getName() === "bard") {
             return (
                 <div className="character-class-preview">
                     <img  className="torso" src="static/icons/bard.png" alt="class" />
                 </div>
             )}
-        if (this.catMode() === "cleric") {
+        if (this.getName() === "cleric") {
             return (
                 <div className="character-class-preview">
                     <img  className="torso" src="static/icons/cleric.png" alt="class" />
                 </div>
             )}
-        if (this.catMode() === "druid") {
+        if (this.getName() === "druid") {
             return (
                 <div className="character-class-preview">
                     <img  className="torso" src="static/icons/druid.png" alt="class" />
                 </div>
             )}
-        if (this.catMode() === "fighter") {
+        if (this.getName() === "fighter") {
             return (
                 <div className="character-class-preview">
                     <img  className="torso" src="static/icons/fighter.png" alt="class" />
                 </div>
             )}
-        if (this.catMode() === "monk") {
+        if (this.getName() === "monk") {
             return (
                 <div className="character-class-preview">
                     <img  className="torso" src="static/icons/monk.png" alt="class" />
                 </div>
             )}
-        if (this.catMode() === "paladin") {
+        if (this.getName() === "paladin") {
             return (
                 <div className="character-class-preview">
                     <img  className="torso" src="static/icons/paladin.png" alt="class" />
                 </div>
             )}
-        if (this.catMode() === "ranger") {
+        if (this.getName() === "ranger") {
             return (
                 <div className="character-class-preview">
                     <img  className="torso" src="static/icons/ranger.png" alt="class" />
                 </div>
             )}
-        if (this.catMode() === "rogue") {
+        if (this.getName() === "rogue") {
             return (
                 <div className="character-class-preview">
                     <img  className="torso" src="static/icons/rogue.png" alt="class" />
                 </div>
             )}
-        if (this.catMode() === "rogue") {
+        if (this.getName() === "rogue") {
             return (
                 <div className="character-class-preview">
                     <img  className="torso" src="static/icons/rogue.png" alt="class" />
                 </div>
             )}
-        if (this.catMode() === "sorcerer") {
+        if (this.getName() === "sorcerer") {
             return (
                 <div className="character-class-preview">
                     <img  className="torso" src="static/icons/sorcerer.png" alt="class" />
                 </div>
             )}
-        if (this.catMode() === "wizard") {
+        if (this.getName() === "wizard") {
             return (
                 <div className="character-class-preview">
                     <img  className="torso" src="static/icons/wizard.png" alt="class" />
                 </div>
             )}
-        if (this.catMode() === "warlock") {
+        if (this.getName() === "warlock") {
             return (
                 <div className="character-class-preview">
                     <img  className="torso" src="static/icons/warlock.png" alt="class" />
