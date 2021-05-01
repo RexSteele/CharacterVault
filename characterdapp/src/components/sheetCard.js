@@ -45,7 +45,7 @@ class SheetCard extends Component {
       // Owner sheet: render card and tooltip and modal for sheet actions
 
       return (
-        <Card style={{ backgroundColor: "DarkPurple" }} raised>
+        <Card style={{ backgroundColor: "#301934" }} raised>
           <ReactTooltip delayShow={400} />
 
           <a
