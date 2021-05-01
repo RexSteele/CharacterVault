@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-import DND_ICON from "./icons/DND_ICON.jpg"
+import DND_ICON from "./DND_ICON.png"
 
 class Greeting extends Component {
   render() {
