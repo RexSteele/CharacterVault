@@ -79,6 +79,7 @@ class LevelUp extends Component {
                 sheetInt={this.props.location.state.sheetInt}
                 sheetWis={this.props.location.state.sheetWis}
                 sheetCha={this.props.location.state.sheetCha}
+                sheetReadyTime={this.props.location.state.sheetReadyTime}
                 sheetOwner={this.props.userAddress}
                 myOwner={false}
               />
