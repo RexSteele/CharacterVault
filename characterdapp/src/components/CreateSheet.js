@@ -48,7 +48,7 @@ class CreateSheet extends Component {
           this.state.dex, this.state.con, this.state.int, this.state.wis, this.state.cha) // contains the sheet name
       this.setState({
         loading: false,
-        message: "You have created a New Sheet"
+        message: "You have created a New Character"
       });
       getSheetCount(this.props.CV, this.props.userAddress);
     } catch (err) {
@@ -65,7 +65,7 @@ class CreateSheet extends Component {
       return (
       <Modal
         trigger={
-          <Button onClick={this.handleOpen}>
+          <Button color='primary' onClick={this.handleOpen}>
             Create Character
           </Button>
         }

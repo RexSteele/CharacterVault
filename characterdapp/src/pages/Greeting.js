@@ -8,18 +8,18 @@ class Greeting extends Component {
       display: "block",
       marginLeft: "auto",
       marginRight: "auto",
-      width: "50%"
+      width: "75%"
     };
 
     return (
       <div>
         <br />
-        <h2 style={{ color: "LightGreen", textAlign: "center" }}>
+        <h2 style={{ color: "LightGreen", backgroundColor:"#0E6EB8", fontSize: "280%", textAlign: "center" }}>
           {" "}
           Welcome to <b> Character Vault</b>, where your imagination is forever!
         </h2>
         <br />
-        <img src={DND_ICON} style={imgStyle} width="400px" alt="D&D Icon" />
+        <img src={"static/images/vault doors.jpg"} style={imgStyle} width="400px" alt="D&D Icon" />
         <br /> <br />
         <p style={{ textAlign: "center" }}>
         <b>This application allows you to create  and store on a blockhain virtual
@@ -28,7 +28,8 @@ class Greeting extends Component {
         of your backpack to find what Aragorn's Strength modifier, or if he still has that health potion from last session!
         Even better, now you just need your key and the rest is handled on the Ethereum blockchain.</b>
         <br /> Once created, your character can level up and stats can be increased (or decreased, if you have a nasty DM) at will.
-        <br /> <br /> To get started, Click "Create Character" on the topbar in the top left.
+        <br /> <br /> To get started, Click "Create Character" on the topbar in the top left. <br/>
+        <br/>
         </p>
       </div>
     );
