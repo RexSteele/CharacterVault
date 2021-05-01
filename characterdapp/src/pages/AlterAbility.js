@@ -56,8 +56,6 @@ class AlterAbility extends Component {
         });
       }
       if(!isNaN(this.state.dex)) {
-        console.log(this.state.dex);
-        console.log(parseInt(this.state.dex));
         await this.props.CV
           .changeDex(this.state.sheetId, parseInt(this.state.dex));
         this.setState({
