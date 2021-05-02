@@ -17,24 +17,12 @@ import AlterAbility from "./pages/AlterAbility";
 
 import store from "./redux/store";
 
-//
-//  This is the main application page; routing is handled to render other pages in the application
-
 class App extends Component {
-  // define a state variable for important connectivity data to the blockchain
-  // this will then be put into the REDUX store for retrieval by other pages
-
-  // **************************************************************************
-  //
-  // React will call this routine only once when App page loads; do initialization here
-  //
-  // **************************************************************************
-
 
     componentDidMount = async () => {
       try {
           const CVInfo = await initBlockchain(); // from utils directory;  connect to provider and to metamask or other signer
-          await getSheetCount(CVInfo.CV, CVInfo.userAddress); // get user count and total count of zombies
+          await getSheetCount(CVInfo.CV, CVInfo.userAddress); // get user count and total count of sheets
       } catch (error) {
           // Catch any errors for any of the above operations.
           alert(`Failed to load provider, signer, or contract. Check console for details.`);
@@ -42,16 +30,6 @@ class App extends Component {
       }
     };
 
-
-
-
-
-  // **************************************************************************
-  //
-  // main render routine for App component;
-  //      contains route info to navigate between pages
-  //
-  // **************************************************************************
 
   render() {
     return (

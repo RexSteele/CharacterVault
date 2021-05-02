@@ -17,7 +17,7 @@ function mapStateToProps(state) {
   };
 }
 
-// This renders the topbar on the webpage as well as the lines listing address and zombie count.
+// This renders the topbar on the webpage as well as the lines listing address and sheet count.
 
 class TopBar extends Component {
   render() {

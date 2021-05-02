@@ -1,8 +1,6 @@
 import Web3 from "web3";
 import store from "../redux/store";
 
-//import web3Initialized from "../redux/modules/czAppDuck";  // for some unknown reason, the duck doesn't work!
-// so use this action type and creator instead
 
 const WEB3_INITIALIZED = "WEB3_INITIALIZED"; // action type
 
