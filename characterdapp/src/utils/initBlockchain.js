@@ -18,21 +18,9 @@ function blockchainInitialized(data) {
 
 const initBlockchain = async () => {
 
-    // get contract instance and user address
-    // If you don't specify a //url//, Ethers connects to the default
-    // (i.e. ``http:/\/localhost:8545``)
-
-    // I used this to connect to Ganache:
-
-    //const provider = await new ethers.providers.JsonRpcProvider();
-    //console.log("provider", provider);
-
     let provider;
     window.ethereum.enable().then(provider = new ethers.providers.Web3Provider(window.ethereum));
 
-    // The provider also allows signing transactions to
-    // send ether and pay to change state within the blockchain.
-    // For this, we need the account signer...
 
     const signer = await provider.getSigner()
     console.log("signer", signer);

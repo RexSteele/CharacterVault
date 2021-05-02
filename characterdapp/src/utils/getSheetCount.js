@@ -18,9 +18,6 @@ async function getSheetCount(CV, userAddress) {
   // get number of sheets owned by the user account
   let userSheetCount = +(await CV.balanceOf(userAddress));  // + convert a string to an integer
 
-  // do a binary search to estimate total sheet count.
-  // It is a real shame that the Cryptosheets contract doesn't totally comply with ERC720 to include a function
-  // that returns totalSheetount.
 
   var high = 8192;
   var low = 0;
